@@ -9,7 +9,8 @@ struct Data
     double money;
 };
 
-void newMoney(Data& data);
+double enterNewMoney();
+void newMoney(Data& data, double newMoney);
 Data createData();
 void getInfo(Data data);
 
@@ -19,17 +20,22 @@ int main()
     SetConsoleOutputCP(1251);
 
     Data person = createData();
-    newMoney(person);
+    double money = enterNewMoney();
+    newMoney(person, money);
     getInfo(person);
 }
 
-void newMoney(Data& data)
+double enterNewMoney()
 {
     std::cout << "Введите новый баланс: ";
     double money;
     std::cin >> money;
+    return money;
+}
 
-    data.money = money;
+void newMoney(Data& data, double newMoney)
+{   
+    data.money = newMoney;
 }
 
 Data createData()
